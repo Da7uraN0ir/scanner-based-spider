@@ -1,8 +1,9 @@
 #-*- coding:utf-8 -*-
-from ..core import downloader,urlmanager
+import downloader,urlmanager
 import threading
 from urlparse import urljoin
 from bs4 import BeautifulSoup
+import plugin
 class spidermain(object):
     def __init__(self,root,threadnum):
         self.urls = urlmanager.urlmanager()
@@ -51,4 +52,7 @@ class spidermain(object):
                 if _str is None:
                     continue
                 new_urls = self._parse(new_url,_str["html"])
+                disallow = ["email_check"]
+                _plugin = plugin.spiderplus("script",disallow)
+                _plugin.work(_str["url"],_str["html"])
                 self.urls.add_new_urls(new_urls)
