@@ -1,4 +1,12 @@
 import re
+import urlparse
+import socket
+def gethostbyname(url):
+    domain = urlparse.urlparse(url)
+    if domain.netloc is None:
+        return None
+    ip = socket.gethostbyname(domain.netloc)
+    return ip
 def urlsplit(url):
     if re.search(url,"?"):
         domain = url.split("?")[0]

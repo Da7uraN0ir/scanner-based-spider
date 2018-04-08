@@ -52,7 +52,7 @@ class spidermain(object):
                 if _str is None:
                     continue
                 new_urls = self._parse(new_url,_str["html"])
-                disallow = []
+                disallow = ["webshell_check"]
                 _plugin = plugin.spiderplus("script",disallow)
                 _plugin.work(_str["url"],_str["html"])
                 self.urls.add_new_urls(new_urls)

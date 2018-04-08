@@ -4,7 +4,7 @@ sys.path.append('C:\Users\Administrator.SG-20170616FAOE\Desktop\PYSCANER\scanner
 from lib.core import downloader,common
 
 payload = []
-filename = os.path.join(sys.path[0],"C:\Users\Administrator.SG-20170616FAOE\Desktop\PYSCANER\scanner-based-spider\data","xsspayload.txt")
+filename = os.path.join(sys.path[0],"data","xsspayload.txt")
 f = open(filename)
 for i in f:
     # print i.strip()
